@@ -12,12 +12,8 @@ pip install -r .\requirements.txt
 ## Redis Server
 docker compose up
 
-## For Windows
-pip install gevent # Windows
-celery -A app.celery_worker.celery worker --loglevel=info --pool=gevent
-
 ## Run Celery Worker
-celery -A app.celery_worker.celery worker --loglevel=info
+celery -A app.celery_worker.celery worker --loglevel=info --pool=gevent
 
 ## Flower Dashboard
 celery --broker=redis://localhost:6380/0 flower
